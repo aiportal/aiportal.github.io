@@ -21,12 +21,16 @@
 | company: uuid |
 | role: uuid |
 | ... |
-  
+
+<br/>
+
 | Companies |
 | :-------- |
 | id: uuid |
 | name: string |
 | ... |
+
+<br/>
   
 | Roles |
 | :---- |
@@ -36,7 +40,7 @@
 
 ### REST 接口
 
-***查询数据集***  
+* **查询数据集**  
 GET /employees?fields=id,name,employee(id,name),role
 
 ``` json
@@ -52,7 +56,7 @@ GET /employees?fields=id,name,employee(id,name),role
 ```
 fields 字段是必须的，它定义了客户端需要获取的所有数据列，包括外键引用的数据表内容。
 
-***查询单个对象***  
+* **查询单个对象**  
 GET /employees/{id}?fields=id,name,employee,role(id,name)
 
 ``` json
@@ -68,7 +72,7 @@ GET /employees/{id}?fields=id,name,employee,role(id,name)
 ```
 fields 列表未包含嵌套列时，外键引用不展开，仅返回原始的数据列内容。
 
-***更新单个对象***  
+* **更新单个对象**  
 PUT /employees/{id}
 ``` json
 {
@@ -78,7 +82,7 @@ PUT /employees/{id}
 ```
 更新操作只更新请求体中已包含的字段内容。
 
-***添加对象***  
+* **添加对象**  
 POST /employees
 ``` json
 {
@@ -88,7 +92,7 @@ POST /employees
 ```
 
 
-***删除对象***
+* ***删除对象***
 DELETE /employees/{id}
 
 ## 接口实现代码（以 Mongodb 为例）
@@ -149,18 +153,22 @@ DELETE /employees/{id}
 
 这是一个延伸话题，也是一个可选项。通过对 URL 查询语句的特殊编码，实现简单的数据筛选。
 
+<br/>
+
 ***查询语句映射*** (以 Postgresql 为例)
 
-URL filter | SQL filter |
----------- | ---------- |
-name!=value | name <> value |
-name!!=&... | name is null |
-name!!!=&... | name is not null |
-name[]=v1&name[]=v2 | name in (v1, v2) |
-(name]=v1&(name]=v2 | v1 < name and name <= v2 |
-.name_=value | name like '_value%' |
-  
-***批量更新多个对象***  
+| URL filter | SQL filter |
+| :--------- | :--------- |
+| name!=value | name <> value |
+| name!!=&... | name is null |
+| name!!!=&... | name is not null |
+| name[]=v1&name[]=v2 | name in (v1, v2) |
+| (name]=v1&(name]=v2 | v1 < name and name <= v2 |
+| .name_=value | name like '_value%' |
+
+<br/>
+
+* **批量更新多个对象**  
 PUT /employees?company!=5d77a5800a1cbe995321446b
 ``` json
 {
@@ -173,7 +181,7 @@ SET role = NULL
 WHERE company = '5d77a5800a1cbe995321446b'
 ```
 
-***批量删除多个对象***
+* **批量删除多个对象**
 DELETE /employees?company!!=&role!=5d77a58b3be3ed6b1c971aef
 
 ``` sql
@@ -182,7 +190,7 @@ WHERE company IS NULL
   AND role <> '5d77a58b3be3ed6b1c971aef'
 ```
 
-***查询数据集***  
+* **筛选数据集**  
 GET /employees?fields=id,name&company!!!=&role!!!=
 
 ``` sql
@@ -190,5 +198,6 @@ SELECT id, name
 FROM employees
 WHERE company IS NOT NULL
   AND role IS NOT NULL
+```
 
-启用通用查询扩展(Generic query filter)时，为避免字段名称混淆，可将 fields 参数名称变更为 $fields 。
+PS: 启用通用查询扩展(Generic query filter)时，为避免字段名称混淆，可将 fields 参数名称变更为 $fields 。
