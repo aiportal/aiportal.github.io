@@ -14,7 +14,7 @@
 
 ### 数据库结构
 
-| Employees |
+| &nbsp; **Employees** |
 | :-------- |
 | id: uuid |
 | name: string |
@@ -24,7 +24,7 @@
 
 <br/>
 
-| Companies |
+| &nbsp; **Companies** |
 | :-------- |
 | id: uuid |
 | name: string |
@@ -32,7 +32,7 @@
 
 <br/>
   
-| Roles |
+| &nbsp; **Roles** |
 | :---- |
 | id: uuid |
 | name: uuid |
@@ -155,9 +155,9 @@ DELETE /employees/{id}
 
 <br/>
 
-***查询语句映射*** (以 Postgresql 为例)
+* **查询语句映射** (以 Postgresql 为例)
 
-| URL filter | SQL filter |
+| &nbsp; **URL filter** |  &nbsp; **SQL filter** |
 | :--------- | :--------- |
 | name!=value | name <> value |
 | name!!=&... | name is null |
