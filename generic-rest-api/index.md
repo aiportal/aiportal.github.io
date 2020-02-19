@@ -14,29 +14,7 @@
 
 ### 数据库结构
 
-| &nbsp; **Employees** |
-| :-------- |
-| id: uuid |
-| name: string |
-| company: uuid |
-| role: uuid |
-| ... |
-
-<br/>
-
-| &nbsp; **Companies** |
-| :-------- |
-| id: uuid |
-| name: string |
-| ... |
-
-<br/>
-  
-| &nbsp; **Roles** |
-| :---- |
-| id: uuid |
-| name: uuid |
-| ... |
+![](https://aiportal.github.io/generic-rest-api/data-model.png)
 
 <br/>
 
@@ -167,8 +145,9 @@ DELETE /employees/{id}
 | name!!=&... | name is null |
 | name!!!=&... | name is not null |
 | name[]=v1&name[]=v2 | name in (v1, v2) |
-| (name]=v1&(name]=v2 | v1 < name and name <= v2 |
+| (name=v1&name]=v2 | v1 < name and name <= v2 |
 | .name_=value | name like '_value%' |
+| {name}=value | custom sql filter |
 
 <br/>
 
@@ -203,5 +182,3 @@ FROM employees
 WHERE company IS NOT NULL
   AND role IS NOT NULL
 ```
-
-PS: 启用通用查询扩展(Generic query filter)时，为避免字段名称混淆，可将 fields 参数名称变更为 $fields 。
