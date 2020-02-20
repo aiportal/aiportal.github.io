@@ -8,7 +8,6 @@
 
 [Generic REST API](https://aiportal.github.io/generic-rest-api/) 以资源操作为主，主要实现针对数据库资源的 CRUD (CREATE，READ，UPDATE，DELETE) 操作。
 
-<br/>
 
 ## 接口设计示例
 
