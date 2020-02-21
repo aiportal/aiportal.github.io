@@ -12,7 +12,7 @@
 
 ### 数据库结构
 
-![](./data-model.png)
+![Employees 数据表引用 Companies 和 Roles 数据表](./data-model.png)
 
 <br/>
 
@@ -171,7 +171,7 @@ WHERE company IS NULL
   AND role <> '5d77a58b3be3ed6b1c971aef'
 ```
 
-* **筛选数据集**  
+* **简单筛选数据集**  
 GET /employees?fields=id,name&company!!!=&role!!!=
 
 ``` sql
