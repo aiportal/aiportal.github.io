@@ -108,8 +108,8 @@
 
 | name | url | version |
 | :--- | :--- | :------ |
-| employee | /employees?fields=id,name,employee(id,name),role |6b7149833d3676e1fc38ce2ad733f640 |
-| employee | /employees/{id}?fields=id,name,employee,role(id,name) | 6b7149833d3676e1fc38ce2ad733f640 |
+| &nbsp; employee &nbsp; | &nbsp; /employees?fields=id,name,employee(id,name),role &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
+| &nbsp; employee &nbsp; | &nbsp; /employees/{id}?fields=id,name,employee,role(id,name) &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
 
 <br/>
 
@@ -148,6 +148,9 @@ PS: *如果需要实时响应，可以在缓存信息表中增加一个 sync 列
 
 * **技巧三：资源分片**
 
-  对于数据量特别大的表，如果每次资源更新都引发大面积缓存部署，会严重影响系统效率，降低用户体验。此时可将一个数据集划分成多个多个资源，分别登记版本号，分别生成服务端缓存。浏览器端请求数据时，服务端只需将多个分片的缓存内容合并返回即可。详细信息请参见：[时序数据的缓存设计 (Series etag cache)](https://aiportal.github.io/series-etag-cache/)
+  对于数据量特别大的表，如果每次资源更新都引发大面积缓存部署，会严重影响系统效率，降低用户体验。此时可将一个数据集划分成多个多个资源，分别登记版本号，分别生成服务端缓存。浏览器端请求数据时，服务端只需将多个分片的缓存内容合并返回即可。  
+  
+  详细信息请参见：[时序数据的缓存设计 (Series etag cache)](https://aiportal.github.io/series-etag-cache/)
 
-
+<br/>
+<br/>
