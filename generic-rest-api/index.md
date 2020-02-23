@@ -140,17 +140,17 @@ DELETE /employees/{id}
 | &nbsp; **URL filter** |  &nbsp; **SQL filter** |
 | :--------- | :--------- |
 | name!=value | name <> value |
-| name!!=&... | name is null |
-| name!!!=&... | name is not null |
+| name~=&... | name is null |
+| name~!=&... | name is not null |
 | name[]=v1&name[]=v2 | name in (v1, v2) |
 | (name=v1&name]=v2 | v1 < name and name <= v2 |
-| .name_=value | name like '_value%' |
-| {name}=value | custom sql filter |
+| \_name___=value | name like '_value%' |
+| name\|ltrim\|rtrim\|length=value | length(rtrim(ltrim(name))) = value  
 
 <br/>
 
 * **批量更新多个对象**  
-PUT /employees?company!=5d77a5800a1cbe995321446b
+PUT /employees?company=5d77a5800a1cbe995321446b
 ``` json
 {
   "role": null
@@ -162,8 +162,8 @@ SET role = NULL
 WHERE company = '5d77a5800a1cbe995321446b'
 ```
 
-* **批量删除多个对象**
-DELETE /employees?company!!=&role!=5d77a58b3be3ed6b1c971aef
+* **批量删除多个对象**  
+DELETE /employees?company~=&role!=5d77a58b3be3ed6b1c971aef
 
 ``` sql
 DELETE employees
@@ -172,7 +172,7 @@ WHERE company IS NULL
 ```
 
 * **简单筛选数据集**  
-GET /employees?fields=id,name&company!!!=&role!!!=
+GET /employees?fields=id,name&company~!=&role~!=
 
 ``` sql
 SELECT id, name

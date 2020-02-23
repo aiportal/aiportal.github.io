@@ -137,14 +137,14 @@ PS: *如果需要实时响应，可以在缓存信息表中增加一个 sync 列
 * **技巧二：数据归并**  
   
   两个页面分别有如下的数据请求：  
-  页面A：[GET /employees?fields=id,name&role.name=admin](https://aiportal.github.io/generic-rest-api/)  
-  页面B：[GET /employees?fields=id,name&role.name=sale](https://aiportal.github.io/generic-rest-api/)  
+  页面A：[GET /employees?fields=id,name&flag=admin](https://aiportal.github.io/generic-rest-api/)  
+  页面B：[GET /employees?fields=id,name&flag=sale](https://aiportal.github.io/generic-rest-api/)  
 
   可以修改成如下方式，获取同时满足两个页面的数据：  
-  页面A：[GET /employees?fields=id,name&role.name[]=admin&role.name[]=sale](https://aiportal.github.io/generic-rest-api/)  
-  页面B：[GET /employees?fields=id,name&role.name[]=admin&role.name[]=sale](https://aiportal.github.io/generic-rest-api/)
+  页面A：[GET /employees?fields=id,name,flag&flag[]=admin&flag[]=sale](https://aiportal.github.io/generic-rest-api/)  
+  页面B：[GET /employees?fields=id,name,flag&flag[]=admin&flag[]=sale](https://aiportal.github.io/generic-rest-api/)
 
-  数据使用前，只需在客户端进行一次筛选 ([filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)) 即可分别满足两个页面的需求。
+  数据使用前，只需在浏览器端进行一次筛选 ([filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)) 即可分别满足两个页面的需求。
 
 * **技巧三：资源分片**
 
