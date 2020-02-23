@@ -2,9 +2,9 @@
 
 <br/>
 
-[ETag cache service](https://aiportal.github.io/etag-cache-service/) 是为 [RESTful](https://restfulapi.net/) 接口协议设计的一套缓存策略，它可以有效降低服务端的运算负载，提高浏览器端的使用体验。
+**[ETag cache service](https://aiportal.github.io/etag-cache-service/) 是为 [RESTful](https://restfulapi.net/) 接口协议设计的一套缓存策略，它可以有效降低服务端的运算负载，提高浏览器端的使用体验。**
 
-建议结合 [Generic REST API](https://aiportal.github.io/generic-rest-api/) 使用，效果更佳。
+**建议结合 [Generic REST API](https://aiportal.github.io/generic-rest-api/) 使用，效果更佳。**
 
 <br/>
 

@@ -2,9 +2,9 @@
 
 <br/>
 
-[Generic REST API](https://aiportal.github.io/generic-rest-api/) 是一份接口协议，也是一份设计指导。它在 [RESTful](https://restfulapi.net/) 接口协议的基础上加以扩展，提供了更加丰富的资源操作语义。
+**[Generic REST API](https://aiportal.github.io/generic-rest-api/) 是一份接口协议，也是一份设计指导。它在 [RESTful](https://restfulapi.net/) 接口协议的基础上加以扩展，提供了更加丰富的资源操作语义。**
 
-[Generic REST API](https://aiportal.github.io/generic-rest-api/) 以资源操作为主，主要实现针对数据库资源的 CRUD (CREATE，READ，UPDATE，DELETE) 操作。
+**[Generic REST API](https://aiportal.github.io/generic-rest-api/) 以资源操作为主，主要实现针对数据库资源的 CRUD (CREATE，READ，UPDATE，DELETE) 操作。**
 
 <br/>
 
