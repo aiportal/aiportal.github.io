@@ -19,7 +19,7 @@
 ### REST 接口
 
 * **查询数据集**  
-GET /employees?fields=id,name,employee(id,name),role
+GET /employees?fields=id,name,company(id,name),role
 
 ``` json
 {
@@ -35,7 +35,7 @@ GET /employees?fields=id,name,employee(id,name),role
 fields 字段是必须的，它定义了客户端需要获取的所有数据列，包括外键引用的数据表内容。
 
 * **查询单个对象**  
-GET /employees/{id}?fields=id,name,employee,role(id,name)
+GET /employees/{id}?fields=id,name,company,role(id,name)
 
 ``` json
 {
@@ -68,7 +68,6 @@ POST /employees
   "role": "5d77a58b3be3ed6b1c971aef",
 }
 ```
-
 
 * ***删除对象***  
 DELETE /employees/{id}
