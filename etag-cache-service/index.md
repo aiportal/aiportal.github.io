@@ -108,8 +108,8 @@
 
 | name | url | version |
 | :--- | :--- | :------ |
-| &nbsp; employee &nbsp; | &nbsp; /employees?fields=id,name,employee(id,name),role &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
-| &nbsp; employee &nbsp; | &nbsp; /employees/{id}?fields=id,name,employee,role(id,name) &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
+| &nbsp; employee &nbsp; | &nbsp; /employees?fields=id,name,company(id,name),role &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
+| &nbsp; employee &nbsp; | &nbsp; /employees/{id}?fields=id,name,company,role(id,name) &nbsp; | &nbsp; 6b7149833d3676e1fc38ce2ad733f640 &nbsp; |
 
 <br/>
 
@@ -127,12 +127,12 @@ PS: *如果需要实时响应，可以在缓存信息表中增加一个 sync 列
 * **技巧一：参数对齐**  
 
   两个页面分别有如下的数据请求：  
-  页面A：[GET /employees?fields=id,name,employee(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
-  页面B：[GET /employees?fields=id,name,employee(name)](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
+  页面A：[GET /employees?fields=id,name,company(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
+  页面B：[GET /employees?fields=id,name,company(name)](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
 
   修改成如下方式可以提高缓存命中率，让两个页面共享缓存：  
-  页面A：[GET /employees?fields=id,name,employee(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
-  页面B：[GET /employees?fields=id,name,employee(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")
+  页面A：[GET /employees?fields=id,name,company(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
+  页面B：[GET /employees?fields=id,name,company(id,name),role](https://aiportal.github.io/generic-rest-api/ "Generic REST API")
 
 * **技巧二：数据归并**  
   
@@ -142,8 +142,7 @@ PS: *如果需要实时响应，可以在缓存信息表中增加一个 sync 列
 
   可以修改成如下方式，获取同时满足两个页面的数据：  
   页面A：[GET /employees?fields=id,name,flag&flag[]=admin&flag[]=sale](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
-  页面B：[GET /employees?fields=id,name,flag&flag[]=admin&flag[]=sale](https://aiportal.github.io/generic-rest-api/ "Generic REST API")
-
+  页面B：[GET /employees?fields=id,name,flag&flag[]=admin&flag[]=sale](https://aiportal.github.io/generic-rest-api/ "Generic REST API")  
   数据使用前，只需在浏览器端进行一次筛选 ([filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)) 即可分别满足两个页面的需求。
 
 * **技巧三：资源分片**
