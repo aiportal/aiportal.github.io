@@ -26,7 +26,9 @@
 
 ![业务数据库设计图](./models.png)
 
-* Business Service1 包含 Employee, Company, Role 三个数据表，Business Service2 包含 User, History, Favorite 三个数据表，Bussiness Service3 包含 Order 数据表，同时引用了来自 Business Service1 的 Employee.csv 缓存数据和来自 Business Service2 的 User.csv 缓存数据。
+* Business Service1 包含 Employee, Company, Role 三个数据表，Business Service2 包含 User, History, Favorite 三个数据表，Bussiness Service3 包含 Order 数据表。
+
+* Bussiness Service3 引用了来自 Business Service1 的 Employee.csv 缓存数据和来自 Business Service2 的 User.csv 缓存数据。
 
 * CSV 缓存数据成为各业务子系统之间的交互协议。在协议有效的前提下，任一子系统均可独立升级、扩展。
 
