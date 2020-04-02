@@ -26,7 +26,7 @@
 
 ![业务数据库设计图](./models.png)
 
-* 业务子系统1 (Business Service1) 包含 Employee, Company, Role 三个数据表。业务子系统2 (Business Service2) 包含 User, History, Favorite 三个数据表。业务子系统3 (Bussiness Service3) 包含 Order 数据表，同时使用引用了来自业务子系统1 (Business Service1) 的 Employee.csv 缓存数据和来自业务子系统2 (Business Service2) 的 User.csv 缓存数据。
+* Business Service1 包含 Employee, Company, Role 三个数据表，Business Service2 包含 User, History, Favorite 三个数据表，Bussiness Service3 包含 Order 数据表，同时引用了来自 Business Service1 的 Employee.csv 缓存数据和来自 Business Service2 的 User.csv 缓存数据。
 
 * CSV 缓存数据成为各业务子系统之间的交互协议。在协议有效的前提下，任一子系统均可独立升级、扩展。
 
@@ -93,3 +93,5 @@ Accept: text/csv
 
 * 以上设计方案中，要求每个业务子系统 (Business Service) 都实现 [Generic REST API](https://aiportal.github.io/etag-cache-service/) 和 [ETag cache service](https://aiportal.github.io/etag-cache-service/) 协议，这对于现有系统的改造很不友好，需要大量的开发工作。可以考虑使用 [PostgREST](http://postgrest.org/en/v6.0/) 框架代替 [Generic REST API](https://aiportal.github.io/etag-cache-service/) 协议，自动实现
  [RESTful](https://restfulapi.net/) 模式的数据访问接口。
+
+<br/><br/><br/>
