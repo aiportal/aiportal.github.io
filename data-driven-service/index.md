@@ -96,6 +96,7 @@ Accept: text/csv
 * 以上设计方案中，要求每个业务子系统 (Business Service) 都实现 [Generic REST API](https://aiportal.github.io/etag-cache-service/) 和 [ETag cache service](https://aiportal.github.io/etag-cache-service/) 协议，这对于现有系统的改造很不友好，需要大量的开发工作。可以考虑使用 [PostgREST](http://postgrest.org/en/v6.0/) 框架代替 [Generic REST API](https://aiportal.github.io/etag-cache-service/) 协议，自动实现
  [RESTful](https://restfulapi.net/) 模式的数据访问接口。
 
-* 使用 [PostgreSQL](https://www.postgresql.org/docs/) 的 [postgres-fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html) 插件也可以直接引用其他 [PostgreSQL](https://www.postgresql.org/docs/) 数据库中的数据，跳过 Distribute Service 实现类似目的。此种方式灵活性稍差，但却是最为简单的一种实现方式。
+* 使用 [PostgreSQL](https://www.postgresql.org/docs/) 的 [postgres-fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html) 插件也可以直接引用其他 [PostgreSQL](https://www.postgresql.org/docs/) 数据库中的数据，跳过 Distribute Service 实现类似目的。此种方式灵活性稍差，但却是最为简单的一种实现方式。  
+（[PostgreSQL](https://www.postgresql.org/docs/) 可以使用 [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw) 插件引用 [MySQL](https://dev.mysql.com/doc/refman/8.0/en/) 的数据。[MySQL](https://dev.mysql.com/doc/refman/8.0/en/) 数据库可以使用 [FEDERATED](https://dev.mysql.com/doc/refman/8.0/en/federated-storage-engine.html) 存储引擎引用其他 [MySQL](https://dev.mysql.com/doc/refman/8.0/en/) 实例的数据。）
 
 <br/><br/><br/>
