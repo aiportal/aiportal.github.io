@@ -6,3 +6,5 @@
 ---
 ## [数据驱动的微服务架构 (Data Driven Microservice)](https://aiportal.github.io/data-driven-service/)
 ---
+## [版纳的气候有多宜居](https://aiportal.github.io/weather-compare/)
+---
